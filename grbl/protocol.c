@@ -64,7 +64,7 @@ void protocol_main_loop()
     system_execute_startup(line); // Execute startup script.
   }
 
-  //init_lcd();
+  init_lcd();
 
   // ---------------------------------------------------------------------------------
   // Primary loop! Upon a system abort, this exits back to main() to reset the system.
@@ -74,8 +74,14 @@ void protocol_main_loop()
   uint8_t line_flags = 0;
   uint8_t char_counter = 0;
   uint8_t c;
+  lcd_print(0,"GRBL-MEGA0");
+  lcd_print(1,"GRBL-MEGA1");
+  lcd_print(2,"GRBL-MEGA2");
+  lcd_print(3,"GRBL-MEGA3");
+
   for (;;) {
-  //  lcd_run();
+
+    lcd_run();
 
     // Process one line of incoming serial data, as the data becomes available. Performs an
     // initial filtering by removing spaces and comments and capitalizing all letters.
